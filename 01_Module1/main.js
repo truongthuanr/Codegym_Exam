@@ -60,11 +60,61 @@ function bai2(){
     }
 
     if(tu1*mau2==tu2*mau1){
-        alert("Hai phân số bằng nhau")
+        alert("Hai phân số BẰNG nhau")
     } else{
-        alert("Hai phân số không bằng nhau")
+        alert("Hai phân số KHÔNG bằng nhau")
     }
 
 
 
+}
+
+function bai3(){
+    let mybank = new dssotietkiem()
+    let so = sotietkiem("SO001","PLATINUM", "LE THI NGA", 123123001, "2020/02/02",300000000)
+    mybank.themso(so)
+    let so1 = sotietkiem("SO001","PLATINUM", "TRAN TUNG ANH", 123123022, "2021/12/12",500000000)
+    mybank.themso(so1)
+
+    showAll()
+
+    
+
+}
+
+function showAll(){
+    
+}
+
+class sotietkiem{
+    maso;
+    loai;
+    hoten;
+    cmnd;
+    ngaymoso;
+    sotien;
+    
+    constructor(maso, loai, hoten, cmnd, ngaymoso, sotien){
+        this.maso = maso;
+        this.loai=loai;
+        this.hoten=hoten;
+        this.cmnd=cmnd;
+        this.ngaymoso= Date(ngaymoso);
+        this.sotien=sotien;
+    }
+
+
+
+
+}
+
+class dssotietkiem{
+
+    constructor(){
+        this.dsso = []
+    }
+
+    themso(so){
+        this.dsso.push(so)
+    }
 }
