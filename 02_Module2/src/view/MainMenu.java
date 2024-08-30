@@ -38,8 +38,14 @@ public class MainMenu {
                     break;
                 case 2:
                     addNewContact();
+                    break;
                 case 3:
                     updateContact();
+                    break;
+
+                case 4:
+                    removeContact();
+                    break;
             }
 
         } while (choice !=8 );
@@ -88,15 +94,17 @@ public class MainMenu {
         System.out.print("Nhập địa chỉ: ");
         address = Input.inputString();
 
+        do{
+            System.out.print("Nhập ngày sinh (yyyy-mm-dd): ");
+            birthday = Input.inputString();
+        } while(!Input.validateBirthday(birthday));
+
         do {
             System.out.print("Nhập email*: ");
             email = Input.inputString();
         } while (!Input.validateEmail(email));
 
-        do{
-            System.out.print("Nhập ngày sinh (yyyy-mm-dd): ");
-            birthday = Input.inputString();
-        } while(!Input.validateBirthday(birthday));
+
 
 
         Contact contact = new Contact(phoneNumber, group, name, address, gender, birthday, email);
@@ -160,12 +168,24 @@ public class MainMenu {
 
 
         contactManager.updateContact(phoneNumber, name, group, address, gender, birthday, email);
-
-
-
-
-
     }
 
+    public void removeContact(){
+        String phoneNumber;
+        do { // Loop till find valid phone number
+            System.out.print("Nhập số điện thoại(hoặc nhấn Enter để thoát): ");
+            phoneNumber = Input.inputString();
+            // Thoát nếu không nhập gì
+            if (phoneNumber.isEmpty()) {return;}
+        }while(!contactManager.checkPhoneNumberToUpdate(phoneNumber));
+
+        Contact contact = contactManager.getContactByPhoneNumber(phoneNumber);
+        String choice;
+        System.out.print("Xác nhận xóa (Y/N)?: ");
+        choice = Input.inputString();
+        if (choice.equalsIgnoreCase("Y")) {
+            contactManager.removeContact(contact);
+        }
+    }
 
 }

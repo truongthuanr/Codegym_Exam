@@ -71,5 +71,11 @@ public class ContactManager {
 
     }
 
+    public void removeContact(Contact contact){
+        this.contacts.remove(contact);
+        dataReadWrite.writeData(this.contacts);
+        System.out.println("Xóa liên hệ thành công!");
+    }
+
 
 }
