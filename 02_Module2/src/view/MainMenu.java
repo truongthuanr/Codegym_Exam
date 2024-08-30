@@ -93,8 +93,11 @@ public class MainMenu {
             email = Input.inputString();
         } while (!Input.validateEmail(email));
 
-        System.out.print("Nhập birthday: ");
-        birthday = Input.inputString();
+        do{
+            System.out.print("Nhập ngày sinh (yyyy-mm-dd): ");
+            birthday = Input.inputString();
+        } while(!Input.validateBirthday(birthday));
+
 
         Contact contact = new Contact(phoneNumber, group, name, address, gender, birthday, email);
         contactManager.addContact(contact);
@@ -102,12 +105,63 @@ public class MainMenu {
 
     void updateContact(){
         String phoneNumber;
+        String name;
+        String group;
+        String gender;
+        String address;
+        String email;
+        String birthday;
+
         do { // Loop till find valid phone number
             System.out.print("Nhập số điện thoại(hoặc nhấn Enter để thoát): ");
             phoneNumber = Input.inputString();
             // Thoát nếu không nhập gì
             if (phoneNumber.isEmpty()) {return;}
         }while(!contactManager.checkPhoneNumberToUpdate(phoneNumber));
+
+        // Ask for update info
+        do {
+            System.out.print("Nhập tên liên hệ(Enter nếu không đổi): ");
+            name = Input.inputString();
+            if (name.isEmpty()){break;}
+        } while (!Input.validateName(name));
+
+
+        do {
+            System.out.print("Nhập tên nhóm(Enter nếu không đổi): ");
+            group = Input.inputString();
+            if (group.isEmpty()){break;}
+        } while (!Input.validateGroup(group));
+
+        do {
+            System.out.print("Nhập giới tính(1.Nam 2.Nữ)(Enter nếu không đổi): ");
+            gender = Input.inputString();
+            if (gender.isEmpty()){break;}
+        } while (!Input.validateGender(gender));
+        if (!gender.isEmpty()) {
+            gender = (gender.equals("1")) ? "Nam" : "Nữ";
+        }
+
+        System.out.print("Nhập địa chỉ(Enter nếu không đổi): ");
+        address = Input.inputString();
+
+        do{
+            System.out.print("Nhập ngày sinh (yyyy-mm-dd) (Enter nếu không đổi): ");
+            birthday = Input.inputString();
+            if (birthday.isEmpty()){break;}
+        } while(!Input.validateBirthday(birthday));
+
+        do {
+            System.out.print("Nhập email(Enter nếu không đổi): ");
+            email = Input.inputString();
+            if (email.isEmpty()){break;}
+        } while (!Input.validateEmail(email));
+
+
+
+        contactManager.updateContact(phoneNumber, name, group, address, gender, birthday, email);
+
+
 
 
 

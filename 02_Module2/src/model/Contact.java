@@ -30,23 +30,57 @@ public class Contact {
     public String getPhoneNum() {
         return this.phoneNum;
     }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
     public String getGroup() {
         return this.group;
     }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
     public String getName() {
         return this.name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getAddress() {
         return this.address;
     }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getGender() {
         return this.gender;
     }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getBirthday() {
         return this.birthday;
     }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
     public String getEmail() {
         return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

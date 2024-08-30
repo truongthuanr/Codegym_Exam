@@ -37,5 +37,39 @@ public class ContactManager {
         return false;
     }
 
+    public Contact getContactByPhoneNumber(String phoneNumber){
+        for (Contact contact : this.contacts) {
+            if(contact.getPhoneNum().equals(phoneNumber)){
+                return contact;
+            }
+        }
+        System.out.println("Không tìm thấy số liên lạc trong danh bạ!");
+        return null;
+
+    }
+
+    public void updateContact(String phoneNumber,
+                              String name,
+                              String group,
+                              String address,
+                              String gender,
+                              String birthday,
+                              String email){
+        Contact contact = getContactByPhoneNumber(phoneNumber);
+        if(contact != null){
+            if(!group.isEmpty()){contact.setGroup(group);}
+            if(!name.isEmpty()){contact.setName(name);}
+            if(!address.isEmpty()){contact.setAddress(address);}
+            if(!gender.isEmpty()){contact.setGender(gender);}
+            if(!birthday.isEmpty()){contact.setBirthday(birthday);}
+            if(!email.isEmpty()){contact.setEmail(email);}
+            System.out.println("Cập nhật thành công");
+            System.out.println(contact);
+
+            dataReadWrite.writeData(this.contacts);
+        }
+
+    }
+
 
 }

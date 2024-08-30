@@ -73,4 +73,13 @@ public class Input {
         }
         return checked;
     }
+
+    public static boolean validateBirthday(String birthday) {
+        String reg = "^(19|20)\\d\\d-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$" ;
+        boolean checked = birthday.matches(reg);
+        if (!checked){
+            System.out.println("Không đúng định dạng");
+        }
+        return checked;
+    }
 }
