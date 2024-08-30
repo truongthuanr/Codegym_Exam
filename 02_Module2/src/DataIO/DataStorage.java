@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DataReadWrite {
+public class DataStorage {
 
-    private File file = new File("database/temps.csv");
+    private File file = new File("database/contacts.csv");
     public void writeData(List<Contact> contacts) {
         try {
             String data = "Số điện thoại,Nhóm,Họ tên,Giới tính,Địa chỉ,Ngày sinh,Email\n";
@@ -38,13 +38,13 @@ public class DataReadWrite {
                 String[] data = line.split(",");
                 // Todo
                 Contact contact = new Contact(data[0],
-                                            data[1],
-                                            data[2],
-                                            data[3],
-                                            data[4],
-                                            data[5],
-                                            data[6]
-                        );
+                        data[1],
+                        data[2],
+                        data[3],
+                        data[4],
+                        data[5],
+                        data[6]
+                );
 
                 list.add(contact);
             }

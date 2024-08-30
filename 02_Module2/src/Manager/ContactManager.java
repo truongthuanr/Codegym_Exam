@@ -12,13 +12,20 @@ public class ContactManager {
     private List<Contact> contacts;
 
     public ContactManager() {
-        this.contacts = this.dataReadWrite.readData();
+        // this.contacts = this.dataReadWrite.readData();
     }
 
     public List<Contact> getAllContacts() {
-        this.contacts = this.dataReadWrite.readData();
-        this.contacts.remove(0);
-        return this.contacts;
+        // this.contacts = this.dataReadWrite.readData();
+        List<Contact> contacts = new ArrayList<Contact>();
+        try {
+            this.contacts.remove(0);
+            contacts = this.contacts;
+        } catch (NullPointerException e) {
+            System.out.println("Danh bạ chưa có liên hệ!");
+        }
+        return contacts;
+
     }
 
     public void addContact(Contact contact) {
@@ -63,7 +70,7 @@ public class ContactManager {
             if(!gender.isEmpty()){contact.setGender(gender);}
             if(!birthday.isEmpty()){contact.setBirthday(birthday);}
             if(!email.isEmpty()){contact.setEmail(email);}
-            System.out.println("Cập nhật thành công");
+            System.out.println("Cập nhật thành công!");
             System.out.println(contact);
 
             dataReadWrite.writeData(this.contacts);
@@ -77,5 +84,16 @@ public class ContactManager {
         System.out.println("Xóa liên hệ thành công!");
     }
 
+    public void readFromFile(){
+        DataStorage dataStorage = new DataStorage();
+        this.contacts = dataStorage.readData();
+        System.out.println("Đọc thành công!!!");
 
+    }
+
+    public void writeToFile() {
+        DataStorage dataStorage = new DataStorage();
+        dataStorage.writeData(this.contacts);
+        System.out.println("Ghi thành công!!");
+    }
 }

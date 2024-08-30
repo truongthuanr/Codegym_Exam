@@ -46,6 +46,15 @@ public class MainMenu {
                 case 4:
                     removeContact();
                     break;
+                case 5:
+                    System.out.println("Comming soon!!");
+                    break;
+                case 6:
+                    readFromFile();
+                    break;
+                case 7:
+                    writeToFile();
+                    break;
             }
 
         } while (choice !=8 );
@@ -55,9 +64,14 @@ public class MainMenu {
     public void showAllContacts(){
         Scanner scanner = new Scanner(System.in);
         List<Contact> contacts = this.contactManager.getAllContacts();
-        for (Contact contact : contacts) {
-            System.out.println(contact);
-            scanner.nextLine();
+
+        if (contacts.isEmpty()) {
+            System.out.println("Vui lòng thêm liên hệ hoặc đọc từ file!");
+        }else {
+            for (Contact contact : contacts) {
+                System.out.println(contact);
+                scanner.nextLine();
+            }
         }
 
     }
@@ -186,6 +200,30 @@ public class MainMenu {
         if (choice.equalsIgnoreCase("Y")) {
             contactManager.removeContact(contact);
         }
+    }
+
+
+    public void readFromFile(){
+
+        String choice;
+        System.out.print("Xác nhận cập nhật lại danh bạ từ file (database/contacts.csv) (Y/N)?: ");
+        choice = Input.inputString();
+        if (choice.equalsIgnoreCase("Y")) {
+            contactManager.readFromFile();
+        }
+
+
+    }
+
+    public void writeToFile(){
+
+        String choice;
+        System.out.print("Xác nhận cập nhật lại danh bạ từ file (database/contacts.csv) (Y/N)?: ");
+        choice = Input.inputString();
+        if (choice.equalsIgnoreCase("Y")) {
+            contactManager.writeToFile();
+        }
+
     }
 
 }
