@@ -24,6 +24,17 @@ public class ContactManager {
     public void addContact(Contact contact) {
         this.contacts.add(contact);
         dataReadWrite.writeData(this.contacts);
+        System.out.println("Thêm liên lạc thành công!!!");
+    }
+
+    public boolean checkPhoneNumberToUpdate(String phoneNumber) {
+        for (Contact contact : this.contacts) {
+            if(contact.getPhoneNum().equals(phoneNumber)){
+                return true;
+            }
+        }
+        System.out.println("Không tìm thấy số điện thoại trong danh bạ, vui lòng nhập lại!");
+        return false;
     }
 
 

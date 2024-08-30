@@ -38,6 +38,8 @@ public class MainMenu {
                     break;
                 case 2:
                     addNewContact();
+                case 3:
+                    updateContact();
             }
 
         } while (choice !=8 );
@@ -96,6 +98,19 @@ public class MainMenu {
 
         Contact contact = new Contact(phoneNumber, group, name, address, gender, birthday, email);
         contactManager.addContact(contact);
+    }
+
+    void updateContact(){
+        String phoneNumber;
+        do { // Loop till find valid phone number
+            System.out.print("Nhập số điện thoại(hoặc nhấn Enter để thoát): ");
+            phoneNumber = Input.inputString();
+            // Thoát nếu không nhập gì
+            if (phoneNumber.isEmpty()) {return;}
+        }while(!contactManager.checkPhoneNumberToUpdate(phoneNumber));
+
+
+
     }
 
 
