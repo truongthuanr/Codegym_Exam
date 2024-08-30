@@ -33,12 +33,44 @@ public class Input {
     }
 
     public static boolean validateName(String name) {
-        String reg = "^((0[1-9]{10})|(0[1-9]{9}))$";
+        String reg = "^[AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMN+" +
+                "OÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ+" +
+                "aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjkl+" +
+                "mnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz ]{1,30}$";
         boolean checked = name  .matches(reg);
         if (!checked){
             System.out.println("Không đúng định dạng");
         }
 
+        return checked;
+    }
+
+    public static boolean validateGroup(String group) {
+        String reg = "^[AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMN+" +
+                "OÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ+" +
+                "aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjkl+" +
+                "mnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz0-9 ]{0,15}$";
+        boolean checked = group.matches(reg);
+        if (!checked){
+            System.out.println("Không đúng định dạng");
+        }
+        return checked;
+    }
+
+    public static boolean validateGender(String gender) {
+        String reg = "^([12])$";
+        boolean checked = gender.matches(reg);
+        if (!checked){
+            System.out.println("Không đúng định dạng");
+        }
+        return checked;
+    }
+    public static boolean validateEmail(String gender) {
+        String reg = "^[^ @]+@[^ @]+\\.[^ @]+$";
+        boolean checked = gender.matches(reg);
+        if (!checked){
+            System.out.println("Không đúng định dạng");
+        }
         return checked;
     }
 }

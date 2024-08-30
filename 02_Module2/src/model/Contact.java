@@ -67,5 +67,10 @@ public class Contact {
                 this.email);
     }
 
+    public String toCsvString(){
+        return this.phoneNum + "," + this.group + "," + this.name + "," + this.address +
+                "," + this.gender + "," + this.birthday + "," + this.email + ",";
+    };
+
 
 }

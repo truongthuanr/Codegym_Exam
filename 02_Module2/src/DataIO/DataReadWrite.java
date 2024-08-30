@@ -12,10 +12,10 @@ public class DataReadWrite {
     private File file = new File("database/contacts.csv");
     public void writeData(List<Contact> contacts) {
         try {
-            String data = "";
+            String data = "Số điện thoại,Nhóm,Họ tên,Giới tính,Địa chỉ,Ngày sinh,Email\n";
             for (Contact contact: contacts) {
                 // Todo
-                //data += "contact.getId() + "," + contact.getName() + "," + contact.getPrice() + "," + contact.getCategoryId()" + "\n";
+                data += contact.toCsvString() + "\n";
             }
             FileWriter fileWriter = new FileWriter(this.file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

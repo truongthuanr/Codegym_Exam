@@ -21,5 +21,10 @@ public class ContactManager {
         return this.contacts;
     }
 
+    public void addContact(Contact contact) {
+        this.contacts.add(contact);
+        dataReadWrite.writeData(this.contacts);
+    }
+
 
 }

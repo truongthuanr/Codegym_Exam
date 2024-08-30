@@ -57,16 +57,45 @@ public class MainMenu {
     public void addNewContact(){
         String phoneNumber;
         String name;
+        String group;
+        String gender;
+        String address;
+        String email;
+        String birthday;
         do {
             System.out.print("Nhập số điện thoại*: ");
             phoneNumber = Input.inputString();
         } while (!Input.validatePhoneNumber(phoneNumber));
         do {
-            System.out.print("Nhập số điện thoại*: ");
+            System.out.print("Nhập tên liên hệ*: ");
             name = Input.inputString();
         } while (!Input.validateName(name));
 
 
+        do {
+            System.out.print("Nhập tên nhóm: ");
+            group = Input.inputString();
+        } while (!Input.validateGroup(group));
+
+        do {
+            System.out.print("Nhập giới tính(1.Nam 2.Nữ)*: ");
+            gender = Input.inputString();
+        } while (!Input.validateGender(gender));
+        gender = (gender.equals("1")) ? "Nam" : "Nữ";
+
+        System.out.print("Nhập địa chỉ: ");
+        address = Input.inputString();
+
+        do {
+            System.out.print("Nhập email*: ");
+            email = Input.inputString();
+        } while (!Input.validateEmail(email));
+
+        System.out.print("Nhập birthday: ");
+        birthday = Input.inputString();
+
+        Contact contact = new Contact(phoneNumber, group, name, address, gender, birthday, email);
+        contactManager.addContact(contact);
     }
 
 
