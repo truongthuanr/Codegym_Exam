@@ -21,4 +21,24 @@ public class Input {
         String dataInput = input.nextLine();
         return dataInput;
     }
+
+    public static boolean validatePhoneNumber(String phoneNumber) {
+        String reg = "^((0[1-9]{10})|(0[1-9]{9}))$";
+        boolean checked = phoneNumber.matches(reg);
+        if (!checked){
+            System.out.println("Không đúng định dạng");
+        }
+
+        return checked;
+    }
+
+    public static boolean validateName(String name) {
+        String reg = "^((0[1-9]{10})|(0[1-9]{9}))$";
+        boolean checked = name  .matches(reg);
+        if (!checked){
+            System.out.println("Không đúng định dạng");
+        }
+
+        return checked;
+    }
 }
