@@ -21,7 +21,7 @@
     <div class="left"></div>
 
     <div class="mid">
-        <form action="http://localhost:8080/delete" class="form" method="post">
+        <form action="http://localhost:8080/delete?state=confirm" class="form" method="post">
 
 
             <div class="midtop">

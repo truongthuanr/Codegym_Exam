@@ -36,11 +36,14 @@
             </div>
 
             <div class="midmid">
-                <form action="" method="post">
-                    <input type="hidden"name="deleteId" value="${deleteID}">
-
-                    <button type="submit"></button>
+                <form action="http://localhost:8080/delete?state=yes" method="post">
+                    <input type="hidden"name="deleteId" value="${deleteId}">
+                    <button type="submit" class="btn btn-danger">Chắc chắn</button>
                 </form>
+
+                <a href="http://localhost:8080/home">
+                    <button type="button" class="btn btn-primary">Về trang chủ</button>
+                </a>
 
 
             </div>
