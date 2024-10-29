@@ -27,7 +27,7 @@
         <div class="mid">
             <div class="midtop">
                 <p class="fs-3 fw-semibold" style="color: red">
-                    Bạn có chắc chắn xóa khỏi dữ liệu căn hộ có mã: ${deleteId}
+                    Bạn có chắc chắn xóa khỏi dữ liệu phòng trọ có mã: ${deleteId}
                 </p>
 
 

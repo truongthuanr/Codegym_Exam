@@ -64,6 +64,7 @@ mid {
     height: 80%;
     width: 100%;
     border: 1px solid black;
+    overflow: scroll;
 }
 .form .midbot{
     height: 10%;

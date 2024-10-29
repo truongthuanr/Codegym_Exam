@@ -58,7 +58,8 @@
     width: 100%;
     border: 1px solid black;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
     padding: 5px 25px;
 }
 .mid .midbot{

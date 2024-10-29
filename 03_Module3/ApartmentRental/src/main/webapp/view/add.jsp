@@ -39,11 +39,19 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" name="tel" id="formGroupExampleInput2" placeholder="Nhập số điện thoại" required>
+                        <input type="text" class="form-control" name="tel"
+                               id="formGroupExampleInput2" placeholder="Nhập số điện thoại"
+                               minlength="10" maxlength="11" required>
                     </div>
                     <div class="mb-3">
+                        <jsp:useBean id="date" class="java.util.Date"/>
+<%--                        <c:set var="currdate" value="java.util.Date"/>--%>
+                        <fmt:formatDate value="${date}" pattern="yyyy-MM-dd" var="currdate" />
+
                         <label class="form-label">Ngày bắt đầu</label>
-                        <input type="date" class="form-control" name="startdate" id="formGroupExampleInput2" placeholder="" required>
+                        <input type="date" class="form-control" name="startdate"
+                               id="formGroupExampleInput2" placeholder=""
+                               min="${currdate}" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" >Hình thức thanh toán</label>
@@ -55,7 +63,7 @@
                         </select>
                     </div>
                     <div class="mb-3">Ghi chú</label>
-                        <textarea class="form-control" aria-label="With textarea" maxlength="200"></textarea>
+                        <textarea class="form-control" aria-label="With textarea" maxlength="200" name="note"></textarea>
                     </div>
 
                     <div class="mb3">

@@ -46,9 +46,9 @@
                         <td>Ghi chú</td>
                         <td>Chọn</td>
                     </tr>
-                    <c:forEach var="item" items="${apartments}">
+                    <c:forEach var="item" items="${apartments}" varStatus="loop">
                         <tr>
-                            <td></td>
+                            <td>${loop.index+1}</td>
                             <td>${item.id}</td>
                             <td>${item.name}</td>
                             <td>${item.tel}</td>

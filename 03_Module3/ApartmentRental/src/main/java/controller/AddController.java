@@ -49,6 +49,7 @@ public class AddController extends HttpServlet {
         String startdate_s = req.getParameter("startdate");
         String paytype = req.getParameter("paytype");
         String note = req.getParameter("note");
+//        System.out.println(note);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date startdate = formatter.parse(startdate_s);
 //        System.out.println(startdate.getClass().getName());

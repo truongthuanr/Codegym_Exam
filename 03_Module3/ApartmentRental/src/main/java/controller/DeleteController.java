@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import service.apartmentService;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @WebServlet(name = "deleteController",value = "/delete")
 public class DeleteController extends HttpServlet {
+    private service.apartmentService apartmentService = new apartmentService();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response){
@@ -55,9 +57,20 @@ public class DeleteController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("view/home.jsp");
-        String deleteId = request.getParameter("deleteId");
+        String deleteId_s = request.getParameter("deleteId");
+        deleteId_s = deleteId_s.substring(1, deleteId_s.length()-1);
+        String[] deleteId_arr_s = deleteId_s.split(",");
+
         System.out.println("deleteId");
-        System.out.println(deleteId);
+        System.out.println(deleteId_s);
+        for (int i = 0; i < deleteId_arr_s.length; i++) {
+
+            int id = Integer.parseInt(deleteId_arr_s[i].strip());
+
+            apartmentService.deleteById(id);
+
+        }
+
 
         response.sendRedirect(request.getContextPath() + "/home");
     }

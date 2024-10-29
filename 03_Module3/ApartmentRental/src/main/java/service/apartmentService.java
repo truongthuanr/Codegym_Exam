@@ -111,7 +111,27 @@ public class apartmentService implements IService<Apartments> {
     @Override
     public void delete(Apartments apartment) {
 
+
     }
+
+    public void deleteById(int Id) {
+        System.out.println(Id);
+        String query = "DELETE FROM apartment WHERE id = ?";
+
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,Id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+
 
     @Override
     public Apartments getById(int id) {
