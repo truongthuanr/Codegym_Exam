@@ -53,7 +53,21 @@
                             <td>${item.name}</td>
                             <td>${item.tel}</td>
                             <td>${item.startdate}</td>
-                            <td>${item.paytype}</td>
+                                <%--                            <td>${item.paytype}</td>--%>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${item.paytype==1}">
+                                        Theo tháng
+                                    </c:when>
+                                    <c:when test="${item.paytype==2}">
+                                        Theo quý
+                                    </c:when>
+                                    <c:when test="${item.paytype==3}">
+                                        Theo năm
+                                    </c:when>
+                                </c:choose>
+                            </td>
+
                             <td>${item.note}</td>
                             <td><input type="checkbox" name="isdelete" id="" value="${item.id}"></td>
 
@@ -67,7 +81,7 @@
             <div class="midbot">
                 <div class="deletebutton">
 
-                        <button type="submit" class="btn btn-danger">Xóa</button>
+                    <button type="submit" class="btn btn-danger">Xóa</button>
 
                 </div>
 

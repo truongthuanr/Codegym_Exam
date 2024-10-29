@@ -68,6 +68,10 @@
 
                     <div class="mb3">
                         <button  type="submit" class="btn btn-success">Thêm</button>
+                        <a href="http://localhost:8080/home">
+                            <button  type="button" class="btn btn-danger">Hủy</button>
+                        </a>
+
                     </div>
 
                 </form>

@@ -42,7 +42,20 @@ public class DeleteController extends HttpServlet {
         String[] deleteId = request.getParameterValues("isdelete");
 //        System.out.println(Arrays.toString(deleteId));
 //        System.out.println();
-        request.setAttribute("deleteId", Arrays.asList(deleteId));
+        try {
+            request.setAttribute("deleteId", Arrays.asList(deleteId));
+
+        } catch (Exception e){
+            e.printStackTrace();
+            try {
+                response.sendRedirect(request.getContextPath() + "/home");
+                return;
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
+        }
+
 
 
         try {
