@@ -91,8 +91,11 @@ public class apartmentService implements IService<Apartments> {
             preparedStatement.setDate(3, new java.sql.Date(apartment.getStartdate().getTime()));
 //            int paytype = Integer.parseInt(getIdbypaytypetable().get(apartment.getPaytype()));
 //            System.out.println(apartment.getPaytype());
-            System.out.println(getIdbypaytypetable());
-            preparedStatement.setString(4, apartment.getPaytype());
+//            System.out.println(getIdbypaytypetable().get(apartment.getPaytype()));
+            preparedStatement.setInt(4, getIdbypaytypetable().get(apartment.getPaytype()));
+            preparedStatement.setString(5, apartment.getNote());
+
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e){
             e.printStackTrace();

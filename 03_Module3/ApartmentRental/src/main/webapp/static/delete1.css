@@ -40,7 +40,7 @@
      width: 100%;
      border: 1px solid black;
      display: flex;
-     justify-content: flex-end;
+     justify-content: flex-start;
      align-items: center;
 
  }
@@ -57,6 +57,9 @@
     height: 80%;
     width: 100%;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 25px;
 }
 .mid .midbot{
     height: 10%;

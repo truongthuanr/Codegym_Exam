@@ -13,18 +13,21 @@
 <head>
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/home.css">
+    <link rel="stylesheet" href="../static/home1.css">
 </head>
 <body>
-    <div class="header"> </div>
-    <div class="main">
-        <div class="left"></div>
+<div class="header"></div>
+<div class="main">
+    <div class="left"></div>
 
-        <div class="mid">
+    <div class="mid">
+        <form action="http://localhost:8080/delete" class="form" method="post">
+
+
             <div class="midtop">
                 <div class="addbutton">
                     <a href="http://localhost:8080/add">
-                        <button type="button" class="btn btn-outline-success">Thêm mới</button>
+                        <button type="button" class="btn btn-success">Thêm mới</button>
                     </a>
 
                 </div>
@@ -52,9 +55,7 @@
                             <td>${item.startdate}</td>
                             <td>${item.paytype}</td>
                             <td>${item.note}</td>
-                            <td><input type="checkbox" name="" id=""></td>
-
-
+                            <td><input type="checkbox" name="isdelete" id="" value="${item.id}"></td>
 
                         </tr>
 
@@ -63,14 +64,21 @@
                 </table>
             </div>
 
-            <div class="midbot"></div>
+            <div class="midbot">
+                <div class="deletebutton">
+
+                        <button type="submit" class="btn btn-danger">Xóa</button>
+
+                </div>
 
 
+            </div>
 
 
-        </div>
-        <div class="right"></div> 
+        </form>
     </div>
+    <div class="right"></div>
+</div>
 
 </body>
 </html>

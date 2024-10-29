@@ -35,19 +35,19 @@
                 <form action="http://localhost:8080/add" method="post">
                     <div class="mb-3">
                         <label class="form-label">Tên người thuê</label>
-                        <input type="text" class="form-control" name="name" id="formGroupExampleInput" placeholder="Nhập tên" maxlength="50" minlength="5">
+                        <input type="text" class="form-control" name="name" id="formGroupExampleInput" placeholder="Nhập tên" maxlength="50" minlength="5" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" name="tel" id="formGroupExampleInput2" placeholder="Nhập số điện thoại">
+                        <input type="text" class="form-control" name="tel" id="formGroupExampleInput2" placeholder="Nhập số điện thoại" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Ngày bắt đầu</label>
-                        <input type="date" class="form-control" name="startdate" id="formGroupExampleInput2" placeholder="">
+                        <input type="date" class="form-control" name="startdate" id="formGroupExampleInput2" placeholder="" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" >Hình thức thanh toán</label>
-                        <select id="inputState" name="paytype" class="form-select">
+                        <select id="inputState" name="paytype" class="form-select" required>
                             <option selected value="Month">Theo tháng</option>
                             <option value="Quarter">Theo quý</option>
                             <option value="Year">Theo năm </option>
