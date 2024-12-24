@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Products</h1>
+<table border="1">
+  <tr>
+    <th>Product Name</th>
+    <th>Product Price</th>
+    <th>Order Now</th>
+  </tr>
+  <th:block th:each="transaction : ${transactions}">
+    <tr>
+      <td th:text="${transaction.getName()}"></td>
+      <td th:text="${transaction.getPrice()}"></td>
+      <td><a th:href="@{/shoppingcart/ordernow/__${transaction.id}__}">OrderNow</a></td>
+    </tr>
+  </th:block>
+</table>
+</body>
+</html>
