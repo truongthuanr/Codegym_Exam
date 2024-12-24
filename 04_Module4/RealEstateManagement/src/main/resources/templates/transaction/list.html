@@ -8,15 +8,21 @@
 <h1>Products</h1>
 <table border="1">
   <tr>
-    <th>Product Name</th>
-    <th>Product Price</th>
-    <th>Order Now</th>
+    <th>Transaction ID</th>
+    <th>Customer</th>
+    <th>Area</th>
+    <th>Price</th>
+
+    <th>Service Type</th>
   </tr>
   <th:block th:each="transaction : ${transactions}">
     <tr>
-      <td th:text="${transaction.getName()}"></td>
+      <td th:text="${transaction.getId()}"></td>
+      <td th:text="${transaction.getCustomer()}"></td>
+      <td th:text="${transaction.getArea()}"></td>
       <td th:text="${transaction.getPrice()}"></td>
-      <td><a th:href="@{/shoppingcart/ordernow/__${transaction.id}__}">OrderNow</a></td>
+      <td th:text="${transaction.getServicetype()}"></td>
+<!--      <td><a th:href="@{/shoppingcart/ordernow/__${transaction.id}__}">OrderNow</a></td>-->
     </tr>
   </th:block>
 </table>

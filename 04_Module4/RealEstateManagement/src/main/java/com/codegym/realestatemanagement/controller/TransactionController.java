@@ -21,9 +21,9 @@ public class TransactionController {
 
     @GetMapping("")
     public ModelAndView listProducts() {
-        Iterable<Transaction> transaction = transactionService.findAll();
+        Iterable<Transaction> transactions = transactionService.findAll();
         ModelAndView modelAndView = new ModelAndView("/transaction/list");
-        modelAndView.addObject("transaction", transaction);
+        modelAndView.addObject("transactions", transactions);
         return modelAndView;
     }
 }
