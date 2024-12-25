@@ -26,4 +26,20 @@ public class TransactionController {
         modelAndView.addObject("transactions", transactions);
         return modelAndView;
     }
+
+
+    @GetMapping("/create")
+    public ModelAndView showCreateForm() {
+        ModelAndView modelAndView = new ModelAndView("/transaction/create");
+        modelAndView.addObject("transaction", new Transaction());
+        return modelAndView;
+    }
+
+    @PostMapping("/create")
+    public ModelAndView saveProduct(@ModelAttribute("transaction") Transaction transaction) {
+        transactionService.save(transaction);
+        ModelAndView modelAndView = new ModelAndView("/transaction/create");
+        modelAndView.addObject("transaction", new Transaction());
+        return modelAndView;
+    }
 }
