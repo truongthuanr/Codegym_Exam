@@ -3,9 +3,11 @@ package com.codegym.realestatemanagement.service;
 import com.codegym.realestatemanagement.model.Customer;
 import com.codegym.realestatemanagement.repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class CustomerService implements ICustomerService{
     @Autowired
     private ICustomerRepository iCustomerRepository;

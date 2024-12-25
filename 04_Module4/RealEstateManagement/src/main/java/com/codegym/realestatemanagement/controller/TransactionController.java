@@ -2,6 +2,7 @@ package com.codegym.realestatemanagement.controller;
 import com.codegym.realestatemanagement.model.Customer;
 import com.codegym.realestatemanagement.model.Product;
 import com.codegym.realestatemanagement.model.Transaction;
+import com.codegym.realestatemanagement.service.ICustomerService;
 import com.codegym.realestatemanagement.service.IProductService;
 import com.codegym.realestatemanagement.service.ITransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class TransactionController {
     @Autowired
     ITransactionService transactionService;
 
+    @Autowired
+    ICustomerService customerService;
+
     @GetMapping("")
     public ModelAndView listProducts() {
         Iterable<Transaction> transactions = transactionService.findAll();
@@ -32,6 +36,7 @@ public class TransactionController {
     public ModelAndView showCreateForm() {
         ModelAndView modelAndView = new ModelAndView("/transaction/create");
         modelAndView.addObject("transaction", new Transaction());
+        modelAndView.addObject("customers", customerService.findAll());
         return modelAndView;
     }
 
