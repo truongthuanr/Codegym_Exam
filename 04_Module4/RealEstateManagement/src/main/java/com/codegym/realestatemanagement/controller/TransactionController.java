@@ -1,6 +1,7 @@
 package com.codegym.realestatemanagement.controller;
 import com.codegym.realestatemanagement.model.Customer;
 import com.codegym.realestatemanagement.model.Product;
+import com.codegym.realestatemanagement.model.SERVICETYPE;
 import com.codegym.realestatemanagement.model.Transaction;
 import com.codegym.realestatemanagement.service.ICustomerService;
 import com.codegym.realestatemanagement.service.IProductService;
@@ -37,6 +38,7 @@ public class TransactionController {
         ModelAndView modelAndView = new ModelAndView("/transaction/create");
         modelAndView.addObject("transaction", new Transaction());
         modelAndView.addObject("customers", customerService.findAll());
+
         return modelAndView;
     }
 
@@ -45,6 +47,10 @@ public class TransactionController {
         transactionService.save(transaction);
         ModelAndView modelAndView = new ModelAndView("/transaction/create");
         modelAndView.addObject("transaction", new Transaction());
+        modelAndView.addObject("customers", customerService.findAll());
+        
         return modelAndView;
     }
+
+
 }
