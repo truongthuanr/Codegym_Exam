@@ -14,7 +14,10 @@ public class Transaction{
     private Long id;
     private Customer customer;
     private Date date;
-    private Long servicetype;
+
+    @Enumerated(EnumType.STRING)
+    private SERVICETYPE servicetype;
+
     private double price;
     private double area;
 
@@ -38,8 +41,8 @@ public class Transaction{
     public Date getDate() { return date; }
     public void setDate(Date date) { this.date = date; }
 
-    public Long getServicetype() { return servicetype; }
-    public void setServicetype(Long servicetype) { this.servicetype = servicetype; }
+    public SERVICETYPE getServicetype() { return servicetype; }
+    public void setServicetype(SERVICETYPE servicetype) { this.servicetype = servicetype; }
 
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
